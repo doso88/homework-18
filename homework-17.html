@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="button-box">
+        <!-- <p>1. html ფაილში (ჯავასკრიპტით არა) შევქმნათ ღილაკი, ამ ღილაკის კლიკზე წაიშალოს თვითონ ეს ღილაკი ანუ რომ დავკლიკავ ღილაკზე გაქრეს  გამოიყენეთ ეს მეთოდი remove()</p> -->
+        <label for="btn" class="button-label">Dissapairing Button</label>
+        <button id="btn" onclick="change()">vanish</button>
+        <span class="magic" id="bibidi">BIBIDI BOBIDI BUM</span>
+    </div>
+    <div class="input-box">
+        <!-- <p>დაამატეთ ერთი ინფუთი და ღილაკი , რა ინფორმაციასაც  შეიყვანთ ინფუთის ველში, ღილაკზე დაჭერისას ქვემოთ p ტეგში  გამოიტანეთ ინფუთის მნიშვნელობა .</p> -->
+        <input type="text" id="input">
+        <button id="button" >from  input to p</button>
+        <p id="input-text"></p>
+    </div>
+    <!-- <p>დავწეროთ ფუნქცია, რომელიც დაგვიბრუნებს არგუმენტად მიღებული ხარჯების ჯამს.
+    ფუნქციას არგუმენტად გადაეცით  მასივი - productData და დათვალეთ გადაცემული მასივში amount ის ჯამი
+    const productData = [{product_id: 1, amount: 200}, { product_id: 2, amount: 300 }, { product_id:3, amount: 500 }] 
+    დაბრუნებული ჯამის მნიშნელობა გამოიტანეთ p ტეგის მნიშნელობაში</p> -->
+    <p id="amount-sum"></p>
+    
+
+    <script>
+        //1
+        const change = (change) => {
+            const element = document.getElementById("btn")
+            element.remove()
+            document.getElementById("bibidi").style.display = "block"
+        }
+
+        //2
+        // <!-- <p>ჯავასკრიპტით შევქმნათ img tag რომელსაც src ად მივანიჭებთ ამ: https://www.simplilearn.com/ice9/free_resources_article_thumb/Become_a_Front_End_Developer.jpg სურათის ლინკს და ეს შექმნილი img ჩავსვათ body ში </p> -->
+        const img = document.createElement("img");
+        img.setAttribute("Src", "https://www.simplilearn.com/ice9/free_resources_article_thumb/Become_a_Front_End_Developer.jpg");
+        img.setAttribute("alt", "image");
+        img.setAttribute("id", "img");
+        document.body.appendChild(img)
+
+        //3
+        const input = document.getElementById("input");
+        const button = document.getElementById("button");
+        const input_text = document.getElementById("input-text")
+        const transferInfo = (transferInfo) =>{
+            input_text.textContent = input.value;
+        }
+        button.addEventListener("click", transferInfo);
+
+        //4
+        const product = [
+        {product_id: 1, amount: 200}, 
+        { product_id:2, amount: 300}, 
+        { product_id:3, amount: 500}
+        ]
+        let sum = 0;
+        for (let i = 0; i < product.length; i++) {
+            const element = product[i].amount;
+            sum = sum + element
+        }
+        const p_sum = document.getElementById("amount-sum");
+        p_sum.textContent = sum;
+        document.body.appendChild(p_sum)
+    </script>
+</body>
+</html>
